@@ -1,0 +1,9 @@
+<queue-entries>
+    <queue>
+        <name>default</name>
+        <rate>1/s</rate>
+        <retry-parameters>
+            <task-retry-limit>3</task-retry-limit>
+        </retry-parameters>
+    </queue>
+</queue-entries>

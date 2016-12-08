@@ -1,0 +1,33 @@
+{
+  "setting_type": "call_to_actions",
+  "thread_state": "existing_thread",
+  "call_to_actions": [
+    {
+      "type": "postback",
+      "title": "Bugünki məzənnə /Today's rate",
+      "payload": "report"
+    },
+    {
+      "type": "postback",
+      "title": "Məzənnə dəyişməsi /Rate fluc",
+      "payload": "rate_fluc"
+    },
+    {
+      "type": "postback",
+      "title": "Avtomatik məzənnə /Rate report",
+      "payload": "offer_to_subscribe"
+    },
+    {
+      "type": "postback",
+      "title": "Ən sərfəli məzənnə /Best rate",
+      "payload": "best_rate"
+    },
+    {
+      "type": "postback",
+      "title": "Kömək / Help",
+      "payload": "help"
+    }
+  ]
+}
+
+// Persistent Menu https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN

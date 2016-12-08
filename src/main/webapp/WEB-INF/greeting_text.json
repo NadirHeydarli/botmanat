@@ -1,0 +1,8 @@
+{
+  "setting_type": "greeting",
+  "greeting": {
+    "text": "{{user_first_name}}, bu - çatbotdur, və manat haqqında hər şey bilir: ən sərfəli məzənnə, gündəlik məlumat və s."
+  }
+}
+
+//https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN
