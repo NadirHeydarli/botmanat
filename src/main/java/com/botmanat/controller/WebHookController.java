@@ -226,7 +226,7 @@ public class WebHookController {
     }
 
     public Response plotData(String currency) {
-        List<DailyCurrency> currencies = OfyHelper.get(DailyCurrency.class).order("date").limit(26).list();
+        List<DailyCurrency> currencies = OfyHelper.get(DailyCurrency.class).order("-date").limit(30).list();
 
         List<Object[]> values = Lists.newArrayList();
         for (DailyCurrency dailyCurrency : currencies) {
