@@ -199,7 +199,7 @@ public class WebHookController {
     }
 
     private DailyCurrency extractDailyCurrency(LocalDate date, Document doc) {
-        NodeList currencyList = doc.getFirstChild().getFirstChild().getChildNodes();
+        NodeList currencyList = doc.getFirstChild().getLastChild().getChildNodes();
 
         Map<String, DailyCurrency.Currency> currenciesMap = Maps.newHashMap();
         for (int i = 0; i < currencyList.getLength(); i++) {
