@@ -199,7 +199,7 @@ public class WebHookController {
     }
 
     private DailyCurrency extractDailyCurrency(LocalDate date, Document doc) {
-        NodeList currencyList = doc.getFirstChild().getLastChild().getChildNodes();
+        NodeList currencyList = doc.getFirstChild().getFirstChild().getChildNodes();
 
         Map<String, DailyCurrency.Currency> currenciesMap = Maps.newHashMap();
         for (int i = 0; i < currencyList.getLength(); i++) {
@@ -207,7 +207,7 @@ public class WebHookController {
 
             Integer nominalTryParse = Ints.tryParse(currency.getFirstChild().getTextContent());
             Double rateTryParse = Doubles.tryParse(currency.getLastChild().getTextContent());
-            if (rateTryParse != null) {
+            if (rateTryParse != null && nominalTryParse != null) {
                 currenciesMap.put(currency.getAttribute("Code").toLowerCase(), new DailyCurrency.Currency(rateTryParse, nominalTryParse));
             } else {
                 log.severe("Cannot parse " + currency.getTextContent());
