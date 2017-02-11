@@ -20,6 +20,7 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -199,7 +200,15 @@ public class WebHookController {
     }
 
     private DailyCurrency extractDailyCurrency(LocalDate date, Document doc) {
-        NodeList currencyList = doc.getFirstChild().getFirstChild().getChildNodes();
+        Node rootNode = doc.getFirstChild();
+        NodeList currencyList;
+
+        if (((Element) rootNode.getFirstChild()).getAttribute("Type").equals("Xarici valyutalar")) {
+            currencyList = rootNode.getFirstChild().getChildNodes();
+        } else {
+            currencyList = rootNode.getLastChild().getChildNodes();
+        }
+
 
         Map<String, DailyCurrency.Currency> currenciesMap = Maps.newHashMap();
         for (int i = 0; i < currencyList.getLength(); i++) {
