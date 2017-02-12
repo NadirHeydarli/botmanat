@@ -5,6 +5,7 @@ import com.botmanat.controller.parser.AznSytesParser;
 import com.botmanat.fb.Entry;
 import com.botmanat.fb.ReceivedMessage;
 import com.botmanat.model.DailyCurrency;
+import com.botmanat.model.ExchangeRates;
 import com.botmanat.model.OfyHelper;
 import com.botmanat.model.Subscriber;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -252,5 +253,9 @@ public class WebHookController {
         AznSytesParser aznSytesParser = new AznSytesParser();
         aznSytesParser.parseRates();
         return Response.ok().build();
+    }
+
+    public Response getExchangeRates() {
+        return Response.ok(OfyHelper.get(ExchangeRates.class).first().now()).build();
     }
 }
