@@ -1,6 +1,7 @@
 package com.botmanat.controller;
 
 import com.botmanat.config.app.KeySingleton;
+import com.botmanat.controller.parser.AznSytesParser;
 import com.botmanat.fb.Entry;
 import com.botmanat.fb.ReceivedMessage;
 import com.botmanat.model.DailyCurrency;
@@ -245,5 +246,11 @@ public class WebHookController {
             }
         }
         return Response.ok(values).build();
+    }
+
+    public Response fetchBankRates() {
+        AznSytesParser aznSytesParser = new AznSytesParser();
+        aznSytesParser.parseRates();
+        return Response.ok().build();
     }
 }

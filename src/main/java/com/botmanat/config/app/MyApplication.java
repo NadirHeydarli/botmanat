@@ -1,6 +1,7 @@
 package com.botmanat.config.app;
 
 import com.botmanat.model.DailyCurrency;
+import com.botmanat.model.ExchangeRates;
 import com.botmanat.model.Subscriber;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.impl.translate.opt.joda.JodaTimeTranslators;
@@ -19,6 +20,6 @@ public class MyApplication extends ResourceConfig {
         JodaTimeTranslators.add(ObjectifyService.factory());
         ObjectifyService.register(DailyCurrency.class);
         ObjectifyService.register(Subscriber.class);
-
+        ObjectifyService.register(ExchangeRates.class);
     }
 }

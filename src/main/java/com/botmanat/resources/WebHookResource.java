@@ -44,6 +44,16 @@ public class WebHookResource {
         return this.controller.dailyCurrencyFetch();
     }
 
+    @GET
+    @Path("/bank-rates-fetch")
+    public Response bankRatesFetch(@Context HttpServletRequest request) {
+        if (!isAuthorized(request)) {
+            return Response.status(Response.Status.FORBIDDEN).build();
+        }
+
+        return this.controller.fetchBankRates();
+    }
+
 
     private boolean isAuthorized(@Context HttpServletRequest request) {
         return request.getHeader("X-Appengine-Cron") != null;
