@@ -1,0 +1,49 @@
+
+.button:focus {
+    outline: none;
+}
+
+.rateCurrencyButtons {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 9%;
+}
+
+.ratesBody {
+    font-size: 100%;
+}
+
+.button {
+    color: white;
+    background-color: #839494;
+    width: 20%;
+    height: 100%;
+    border: none;
+    font-size: 1.1em;
+}
+
+.activeButton {
+    box-shadow: 0 0 5px 1px #042323 inset;
+    background-color: #008080;
+}
+
+.actionButton {
+    height: 100%;
+    width: 50%;
+}
+
+.rateActionButtons {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 8%;
+}
+
+#spinner {
+    position: absolute;
+    top: 30%;
+    left: 47%;
+}

@@ -1,6 +1,7 @@
 package com.botmanat.model;
 
 import com.botmanat.controller.parser.ExchangeDirection;
+import com.botmanat.controller.parser.RateContainer;
 import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -9,7 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.AbstractMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,9 +25,9 @@ public class ExchangeRates {
     @Getter
     @Setter
     @Serialize
-    private Map<ExchangeDirection, List<AbstractMap.SimpleEntry<String, String>>> ratesMap;
+    private Map<ExchangeDirection, List<RateContainer>> ratesMap;
 
-    public ExchangeRates(Map<ExchangeDirection, List<AbstractMap.SimpleEntry<String, String>>> ratesMap) {
+    public ExchangeRates(Map<ExchangeDirection, List<RateContainer>> ratesMap) {
         this.ratesMap = ratesMap;
     }
 }

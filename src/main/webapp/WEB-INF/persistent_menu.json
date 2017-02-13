@@ -18,9 +18,11 @@
       "payload": "offer_to_subscribe"
     },
     {
-      "type": "postback",
+      "type": "web_url",
       "title": "Ən sərfəli məzənnə /Best rate",
-      "payload": "best_rate"
+      "url": "http://botmanat.appspot.com/rates/build.index.html",
+      "webview_height_ratio": "full",
+      "messenger_extensions": true
     },
     {
       "type": "postback",

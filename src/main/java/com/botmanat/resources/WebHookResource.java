@@ -66,4 +66,11 @@ public class WebHookResource {
         return this.controller.plotData(currency);
     }
 
+    @GET
+    @Path("/exchange-rates")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response exchangeRates() {
+        return this.controller.getExchangeRates();
+    }
+
 }

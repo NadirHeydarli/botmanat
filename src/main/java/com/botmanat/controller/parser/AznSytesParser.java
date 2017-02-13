@@ -11,7 +11,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +18,9 @@ import java.util.Map;
 @Log
 public class AznSytesParser implements RateParser {
     private static final String URL = "http://azn.sytes.net/";
-    private Map<ExchangeDirection, List<AbstractMap.SimpleEntry<String, String>>> ratesMap = Maps.newHashMap();
+    private static final String NOT_NEEDED = "Naxcivan";
+
+    private Map<ExchangeDirection, List<RateContainer>> ratesMap = Maps.newHashMap();
 
     public boolean parseRates() {
         Document doc = getHTMLDocument();
@@ -32,8 +33,10 @@ public class AznSytesParser implements RateParser {
         for (Element row : tableRows) {
             Elements tableCells = row.select("td");
             String bankName = tableCells.get(ExchangeDirection.BANK_NAME.ordinal()).ownText().trim();
-            for (int i = 1; i < tableCells.size(); i++) {
-                putIntoRatesMap(bankName, tableCells, i);
+            if (!bankName.contains(NOT_NEEDED)) {
+                for (int i = 1; i < tableCells.size(); i++) {
+                    putIntoRatesMap(bankName, tableCells, i);
+                }
             }
         }
 
@@ -69,10 +72,10 @@ public class AznSytesParser implements RateParser {
         }
 
         if (!this.ratesMap.containsKey(exchangeDirection)) {
-            this.ratesMap.put(exchangeDirection, new ArrayList<AbstractMap.SimpleEntry<String, String>>());
+            this.ratesMap.put(exchangeDirection, new ArrayList<RateContainer>());
         }
-        AbstractMap.SimpleEntry<String, String> bankNameBankRatePair = new AbstractMap.SimpleEntry<>(bankName, exchangeRate);
-        ratesMap.get(exchangeDirection).add(bankNameBankRatePair);
+
+        ratesMap.get(exchangeDirection).add(new RateContainer(bankName, exchangeRate));
     }
 
     private String sanitize(String input) {
