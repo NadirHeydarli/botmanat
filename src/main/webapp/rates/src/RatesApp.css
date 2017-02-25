@@ -4,7 +4,7 @@
 }
 
 .rateCurrencyButtons {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 0px;
     width: 100%;
@@ -35,7 +35,7 @@
 }
 
 .rateActionButtons {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -44,6 +44,7 @@
 
 #spinner {
     position: absolute;
-    top: 30%;
-    left: 47%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }

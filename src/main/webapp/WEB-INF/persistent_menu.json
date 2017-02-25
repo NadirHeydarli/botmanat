@@ -20,7 +20,7 @@
     {
       "type": "web_url",
       "title": "Ən sərfəli məzənnə /Best rate",
-      "url": "http://botmanat.appspot.com/rates/build.index.html",
+      "url": "http://botmanat.appspot.com/rates/build/index.html",
       "webview_height_ratio": "full",
       "messenger_extensions": true
     },

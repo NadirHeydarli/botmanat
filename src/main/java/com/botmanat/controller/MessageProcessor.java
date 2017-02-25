@@ -70,8 +70,8 @@ public class MessageProcessor {
             Sender.sendMessageWithQuickReplies(EMessages.OFFER_TO_SUBSCRIBE.getText(subscriberController.getLanguage()), EQuickReplies.OFFER_TO_SUBSCRIBE.get(), senderID);
         } else if (text.equals("subscribe_other")) {
             Sender.sendTextMessage(EMessages.CURRENCY_SUBSCRIBE.getText(subscriberController.getLanguage()), senderID);
-        } else if (text.equals("best_rate")) {
-            Sender.sendTextMessage(EMessages.BEST_RATE.getText(subscriberController.getLanguage()), senderID);
+        } else if (text.equals("best_rate") || text.equals("best")) {
+            sendBestRatesButton(senderID);
         } else {
             Sender.sendMessageWithQuickReplies(EMessages.CANNOT_UNDERSTAND.getText(subscriberController.getLanguage()),
                     subscriberController.getLanguage() == EMenuLanguage.AZ ? EQuickReplies.FULL_MENU_AZ.get() : EQuickReplies.FULL_MENU_EN.get(), senderID);
@@ -86,6 +86,16 @@ public class MessageProcessor {
         List<Button> buttons = Lists.newArrayList();
         buttons.add(button);
         Sender.sendMessageWithButtons(currencyHistoryString, buttons, senderID);
+    }
+
+    private static void sendBestRatesButton(String senderID) {
+        Button button = new Button();
+        button.setTitle("Click to view");
+        button.setUrl("http://botmanat.appspot.com/rates/build/index.html");
+
+        List<Button> buttons = Lists.newArrayList();
+        buttons.add(button);
+        Sender.sendMessageWithButtons("Best bank exchange rates", buttons, senderID);
     }
 
     public static List<String> getCommonCurrencies() {

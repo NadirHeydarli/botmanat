@@ -16,8 +16,21 @@ public enum EMessages {
     BEST_RATE("Best rate functionality is underdevelopment", "Bu funksiya hələ hazır deyil"),
     FULL_MENU("What would you like to know about?", "Nə haqqında məlumat almaq istəyərdin?"),
     LANG_SET("English was set", "Azərbaycan dili seçildi"),
-    HELP("List of supported commands:\n\nstart XYZ - subscribe to daily updates for XYZ currency\n\nstop - unsubscribe from everything\n\nreport - get today's currency report(defaults to USD and EUR)\n\nXYZ - get the latest 14 values for XYZ currency\n\nhelp - opens this help",
-            "in AZ List of supported commands:\n\nstart XYZ - subscribe to daily updates for XYZ currency\n\nstop - unsubscribe from everything\n\nreport - get today's currency report(defaults to USD and EUR)\n\nXYZ - get the latest 14 values for XYZ currency\n\nhelp - opens this help"),
+    HELP("List of supported commands:\n\n" +
+            "start XYZ - subscribe to daily updates for XYZ currency\n\n" +
+            "stop - unsubscribe from everything\n\n" +
+            "report - get today's currency report(defaults to USD and EUR)\n\n" +
+            "best - view the best rates offered by local banks\n\n" +
+            "XYZ - get the latest 14 values for XYZ currency\n\n" +
+            "help - opens this help",
+
+            "in AZ List of supported commands:\n\n" +
+                    "start XYZ - subscribe to daily updates for XYZ currency\n\n" +
+                    "stop - unsubscribe from everything\n\n" +
+                    "report - get today's currency report(defaults to USD and EUR)\n\n" +
+                    "XYZ - get the latest 14 values for XYZ currency\n\n" +
+                    "best - view the best rates offered by local banks\n\n" +
+                    "help - opens this help"),
     OFFER_TO_SUBSCRIBE("Please select the currency that you would like to receive daily updates for", "Hansı valyutanın dəyişməsi barədə xəbər almaq istəyərdiniz?");
 
     String text;

@@ -147,7 +147,7 @@ CurrencyButtonsList >
 < / div >
 )
 ;
-}
+    }
 
 getRatesList()
 {
@@ -175,8 +175,7 @@ getRatesList()
 }
 )
 .
-slice(0, 9)
-    .map(el = > {
+map(el = > {
     return (
     < tr key = {el.bankName
 }>
@@ -186,7 +185,7 @@ className = "bankName" > {el.bankName
 }</
 td >
 < td
-className = "bankRate" > {this.trimZeros(el.rate)
+className = "bankRate" > {el.rate
 }</
 td >
 < / tr >
@@ -194,32 +193,18 @@ td >
 ;
 })
 ;
-}
-
-trimZeros(rate)
-{
-    let rateArray = rate.split('');
-    for (let i = rateArray.length - 1; i >= 1; i--) {
-        if (rateArray[i] === '0' || rateArray[i] === '.') {
-            rateArray.pop();
-        } else {
-            break;
-        }
     }
-
-    return rateArray.join('');
-}
 
 onCurrencyButtonClick(displayedCurrency)
 {
     if (displayedCurrency === this.state.displayedCurrency) {
         return;
-    }
+        }
 
     this.setState({
         displayedCurrency
     });
-}
+    }
 
 onExchangeActionButtonClick(displayedAction)
 {
@@ -230,7 +215,7 @@ onExchangeActionButtonClick(displayedAction)
     this.setState({
         displayedAction
     });
-}
+    }
 }
 
 class RatesApp extends Component {
