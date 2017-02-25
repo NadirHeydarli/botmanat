@@ -3,13 +3,13 @@
     <cron>
         <url>/webhook/daily-fetch</url>
         <description>Currency Checker</description>
-        <schedule>every 5 minutes from 09:30 to 12:00</schedule>
+        <schedule>every 5 minutes from 09:30 to 11:00</schedule>
         <timezone>Asia/Baku</timezone>
     </cron>
     <cron>
         <url>/webhook/bank-rates-fetch</url>
         <description>Bank Rate Parser</description>
-        <schedule>every 1 hours from 09:00 to 17:00</schedule>
+        <schedule>every 30 minutes from 09:00 to 17:15</schedule>
         <timezone>Asia/Baku</timezone>
     </cron>
 </cronentries>
